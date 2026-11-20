@@ -10,3 +10,11 @@ registra se torna um dos olhos de Argos. O técnico recebe o aviso e resolve, e 
 administrador acompanha tudo por relatórios.
 
 > Argos vê. O técnico resolve.
+
+## Regras do projeto
+
+- PHP **procedural**: não usar `class`, `new`, `->` nem `PDO`
+- Banco de dados MySQL ou MariaDB, com funções `mysqli_*`
+- Framework CSS permitido (Bootstrap)
+- Todo dado entra pela interface de cadastro
+- Antes de cada entrega, rodar a verificação de regras (ver abaixo)
