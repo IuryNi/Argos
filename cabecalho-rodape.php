@@ -8,7 +8,7 @@
       "<header class='cabecalho'>
       <h1>Argos</h1>";
       if ($tipo == 1) {
-        $header .= "<a href='indefinido'><div id='perfil'></div></a>";
+        $header .= "<a href='login.php'><div id='perfil'></div></a>";
       }
       $header .= "</header>";
       echo $header;

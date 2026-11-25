@@ -18,7 +18,7 @@
     <?php cabecalho(1) ?>
     <h1>Bem Vindo fulano</h1>
 
-    <p><h2>Chamadas em aberto</h2>
+    <p><h2>Suas chamadas em aberto</h2>
     <table border="1">
         <tr>
             <th>Titúlo</th>
@@ -32,7 +32,7 @@
     </table>
     </p>
 
-    <p><h2>Chamadas Concluidas</h2>
+    <p><h2>Suas chamadas concluidas</h2>
     <table border="1">
         <tr>
             <th>Titúlo</th>

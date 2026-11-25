@@ -18,7 +18,7 @@
     <?php cabecalho(2) ?>
     <form method="post" action="valida_login.php">
         <p>Email: <input type="email" name="txt_email"></p>
-        <p>Senha: <input type="password" name="pas_senha"></p>
+        <p>Senha: <input type="password" name="pas_senha">//senha 1234 para admin</p>
         <p><input type="submit" value="Entrar"></p>
     </form>
     <p>Não possui conta? <a href="cadastro.php">Clique aqui</a></p>
