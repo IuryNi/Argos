@@ -13,10 +13,12 @@
       $header .= "</header>";
       echo $header;
     }
-    $footer = "
-  <footer class='rodape'>
-      <p>&copy; 2026 Argos. Todos os direitos reservados.</p>
-  </footer>";
+    function rodape(){
+      echo "
+      <footer class='rodape'>
+          <p>&copy; 2026 Argos. Todos os direitos reservados.</p>
+      </footer>";
+    }
     ?>
 </body>
 </html>
