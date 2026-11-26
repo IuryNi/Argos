@@ -1,11 +1,11 @@
 -- =====================================================================
 --  ARGOS - Sistema de chamados de reparo dos laboratórios
---  Script de criação do banco (MySQL / MariaDB) - Modelo v1
+--  Script de criação do banco (MySQL / MariaDB) - Modelo v1 (relato ligado ao equipamento)
 -- =====================================================================
 
-DROP DATABASE IF EXISTS argos;
-CREATE DATABASE argos CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci;
-USE argos;
+DROP DATABASE IF EXISTS bd_argos;
+CREATE DATABASE bd_argos CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci;
+USE bd_argos;
 
 -- ---------------------------------------------------------------------
 -- Tabelas sem chave estrangeira (criadas primeiro)
@@ -52,11 +52,11 @@ CREATE TABLE tb_users (
     nome                             VARCHAR(100) NOT NULL,
     email                            VARCHAR(150) NOT NULL UNIQUE,  -- login e salt
     senha                            CHAR(64)     NOT NULL,         -- SHA-256 em hexadecimal
-    fk_tb_cursos_id_curso            INT NOT NULL,
-    fk_tb_nivel_users_id_nivel_user  INT NOT NULL,
-    CONSTRAINT fk_users_curso FOREIGN KEY (fk_tb_cursos_id_curso)
+    fk_id_curso            INT NOT NULL,
+    fk_id_nivel_user  INT NOT NULL,
+    CONSTRAINT fk_users_curso FOREIGN KEY (fk_id_curso)
         REFERENCES tb_cursos (id_curso),
-    CONSTRAINT fk_users_nivel FOREIGN KEY (fk_tb_nivel_users_id_nivel_user)
+    CONSTRAINT fk_users_nivel FOREIGN KEY (fk_id_nivel_user)
         REFERENCES tb_nivel_users (id_nivel_user)
 );
 
@@ -68,8 +68,8 @@ CREATE TABLE tb_equipamentos (
     id_equipamento                    INT AUTO_INCREMENT PRIMARY KEY,
     descritivo                        VARCHAR(100) NOT NULL,   -- ex.: "Computador"
     identificacao                     VARCHAR(50)  NOT NULL,   -- ex.: "PC 12" / patrimônio
-    fk_tb_laboratorios_id_laboratorio INT NOT NULL,
-    CONSTRAINT fk_equip_lab FOREIGN KEY (fk_tb_laboratorios_id_laboratorio)
+    fk_id_laboratorio INT NOT NULL,
+    CONSTRAINT fk_equip_lab FOREIGN KEY (fk_id_laboratorio)
         REFERENCES tb_laboratorios (id_laboratorio)
 );
 
@@ -81,20 +81,20 @@ CREATE TABLE tb_relatos (
     id_relato                                 INT AUTO_INCREMENT PRIMARY KEY,
     descricao                                 TEXT NOT NULL,
     DATA                                      DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
-    fk_tb_users_id_user                       INT NOT NULL,   -- quem abriu o relato
-    fk_tb_imagens_id_imagem                   INT NULL,       -- relato pode não ter imagem
-    fk_tb_relatos_interacoes_id_relato_interacao INT NULL,
-    fk_tb_laboratorios_id_laboratorio         INT NOT NULL,
-    fk_tb_categorias_id_categoria             INT NOT NULL,
-    CONSTRAINT fk_relato_user FOREIGN KEY (fk_tb_users_id_user)
+    fk_id_user                       INT NOT NULL,   -- quem abriu o relato
+    fk_id_imagem                   INT NULL,       -- relato pode não ter imagem
+    fk_id_relato_interacao INT NULL,
+    fk_id_equipamento         INT NOT NULL,   -- o laboratório vem pelo equipamento
+    fk_id_categoria             INT NOT NULL,
+    CONSTRAINT fk_relato_user FOREIGN KEY (fk_id_user)
         REFERENCES tb_users (id_user),
-    CONSTRAINT fk_relato_imagem FOREIGN KEY (fk_tb_imagens_id_imagem)
+    CONSTRAINT fk_relato_imagem FOREIGN KEY (fk_id_imagem)
         REFERENCES tb_imagens (id_imagem) ON DELETE SET NULL,
-    CONSTRAINT fk_relato_interacao FOREIGN KEY (fk_tb_relatos_interacoes_id_relato_interacao)
+    CONSTRAINT fk_relato_interacao FOREIGN KEY (fk_id_relato_interacao)
         REFERENCES tb_relatos_interacoes (id_relato_interacao) ON DELETE SET NULL,
-    CONSTRAINT fk_relato_lab FOREIGN KEY (fk_tb_laboratorios_id_laboratorio)
-        REFERENCES tb_laboratorios (id_laboratorio),
-    CONSTRAINT fk_relato_categoria FOREIGN KEY (fk_tb_categorias_id_categoria)
+    CONSTRAINT fk_relato_equip FOREIGN KEY (fk_id_equipamento)
+        REFERENCES tb_equipamentos (id_equipamento),
+    CONSTRAINT fk_relato_categoria FOREIGN KEY (fk_id_categoria)
         REFERENCES tb_categorias (id_categoria)
 );
 
@@ -117,7 +117,7 @@ INSERT INTO tb_categorias (descritivo) VALUES
 --   login: admin@argos.com
 --   senha: admin123
 --   hash gerado no PHP com: hash('sha256', 'admin123' . 'admin@argos.com')
-INSERT INTO tb_users (nome, email, senha, fk_tb_cursos_id_curso, fk_tb_nivel_users_id_nivel_user)
+INSERT INTO tb_users (nome, email, senha, fk_id_curso, fk_id_nivel_user)
 VALUES ('Administrador', 'admin@argos.com',
         '659c4e18859742c4a68553589427c8816f7e4f4c59ff3b37dfd770ac35cd5704',
         1, 1);
