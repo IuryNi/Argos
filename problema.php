@@ -25,18 +25,24 @@
             <p>Selecione a date de Hoje: <br>
                 <input type="date" name="date_data" value="Data"></p>
 
-            <p>Selecione o tipo de ambientes: <br>
-                <input type="radio" name="rad_tipo_ambiente" id="?">Ambientes</p>
-
-            <p>Selecione o lugar do problema: <br>
+            <p>Selecione o laboratório: <br>
             <select name="sel_ambiente">
                 <option value="id_ambiente">lugares</option>
+            </select></p>
+
+            <p>Selecione a categoria do iten com problema:<br>
+                <input type="radio" name="rad_categoria_iten" id="?">Categorias dos equipamentos do lab
+            </p>
+
+            <p>Selecione o equipamento: <br>
+            <select name="sel_ambiente">
+                <option value="id_ambiente">equipamentos do lab com a categoria</option>
             </select></p>
 
             <p><input type="text" name="txt_descricao" value="Descreva o problema"></p>
 
             <p>Selecione uma imagem do Problema: <br>
-                <input type="file" name="file_imagem"></p>
+                <input type="file" name="file_imagem" accept=".png,.jpg"></p>
 
             <p><input type="submit" value="Registrar problema"></p>
         </form>

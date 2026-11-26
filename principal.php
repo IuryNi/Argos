@@ -13,11 +13,13 @@
     <?php cabecalho(1) ?>
     <h1>Bem Vindo fulano</h1>
 
-    <p><h2>Suas chamadas em aberto</h2>
+    <p><h2>Suas chamadas</h2>
     <table border="1">
         <tr>
-            <th>Titúlo</th>
+            <th>Id_Relato</th>
             <th>Data</th>
+            <th>Descritivo</th>
+            <th>status</th>
         </tr>
         <tr>
             <td>----------------</td>
@@ -26,19 +28,6 @@
         </tr>
     </table>
     </p>
-
-    <p><h2>Suas chamadas concluidas</h2>
-    <table border="1">
-        <tr>
-            <th>Titúlo</th>
-            <th>Data</th>
-        </tr>
-        <tr>
-            <td>----------------</td>
-            <td>25/08/2006</td>
-            <td><a href="problema.php?modo=view">Vizualizar</a></td>
-        </tr>
-    </table></p>
 
     <a href="problema.php"><button>Relatar Problema</button></a>
     

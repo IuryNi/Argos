@@ -16,7 +16,12 @@
         <p>Senha: <input type="password" name="pas_senha">//senha 1234 para admin</p>
         <p><input type="submit" value="Entrar"></p>
     </form>
+    <?php
+     if(isset($_GET['falha']) and $_GET['falha'] == 1){
+        echo "Senha ou email invalido!";
+    }?>
     <p>Não possui conta? <a href="cadastro.php">Clique aqui</a></p>
+    
     <?php rodape() ?>
 </body>
 </html>

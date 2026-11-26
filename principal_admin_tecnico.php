@@ -11,7 +11,7 @@
 </head>
 <body>
     <?php cabecalho(1) ?>
-    <h1>Bem Vindo Administrador</h1>
+    <h1>Todos os relatos</h1>
 
     <p><h2>Chamadas em aberto:</h2>
     <table border="1">
@@ -30,24 +30,9 @@
     </table>
     </p>
 
-   <p><h2>Chamadas em aberto:</h2>
-    <table border="1">
-        <tr>
-            <th>Titúlo</th>
-            <th>Data</th>
-            <th>Relatado por</th>
-        </tr>
-        <tr>
-            <td>----------------</td>
-            <td>25/08/2006</td>
-            <td>Fulano</td>
-            <td><a href="problema.php?modo=view">Vizualizar</a></td>
-            <td><a href="?">Excluir</a></td>
-        </tr>
-    </table>
-    </p>
-
     <div border="2">Dashboard</div>
+    relatório
+    quantidade de relatos em aberto
     
     <?php rodape() ?>
 </body>
