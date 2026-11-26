@@ -10,9 +10,17 @@ Retorno: id\_relato, data, descritivo, status, caminho imagem, descritivo equipa
 
 
 
+status, data, crescente ou decrescente.
+
+
+
 Visualizar todos os relatos enviados ao usuários de nível superior. null=todos
 
 Retorno: id\_relato, data, descritivo, status, urgência, caminho imagem, descritivo equipamento, identificação do equipamento, categoria do relato, laboratório, nome do relator, curso do relator.
+
+
+
+status, urgência, data, laboratório, categoria, crescente ou decrescente.
 
 
 
@@ -56,9 +64,5 @@ Visualizar todos os cursos.
 Retorno: id e descritivo
 
 Visualizar todos os usuários, exceto ele.
-Retorno: id, nome, curso, email, nível de usuario
-
-
-
-
+Retorno: id, nome, curso, email, nível de usuário
 
