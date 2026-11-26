@@ -1,0 +1,41 @@
+header {
+  width: 100%;
+  box-sizing: border-box;
+  padding: 4px 5%;
+  border-bottom: 1px solid #000;
+}
+
+header > div {
+  display: grid;
+  grid-template-columns: 1fr auto; /* esquerda: Argos | direita: imagem + usuário */
+  text-align: center;              /* centraliza "usuario" embaixo da imagem */
+}
+
+header h1 {
+  grid-column: 1;
+  grid-row: 1 / span 2;
+  justify-self: start;             /* Argos na esquerda */
+  align-self: center;
+  margin: 0;
+}
+
+header br {
+  display: none;
+}
+
+header img {
+  display: block;
+}
+
+footer {
+  width: 100%;
+  box-sizing: border-box;
+  padding: 10px 5%;
+  border-top: 1px solid #000;
+  text-align: center;
+  font-size: 0.85rem;
+}
+
+footer p {
+  margin: 0;
+}
