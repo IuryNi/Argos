@@ -7,12 +7,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login Argos</title>
-    <style>
-        body {
-        display: grid;
-        place-items: center;
-        }
-    </style>
+    <link rel="stylesheet" href="styles/geral_temporario_style.css">
 </head>
 <body>
     <?php cabecalho(2);

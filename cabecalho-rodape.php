@@ -1,17 +1,21 @@
 <head>
-  <link rel="stylesheet" href="styles/cabecalho-rodape-style.css">
+  <link rel="stylesheet" href="styles/cabecalho_rodape_style.css">
 </head>
 <body>
-    <?php
+  <?php
     function cabecalho(int $tipo){
-      $header = 
+      echo 
       "<header class='cabecalho'>
-      <h1>Argos</h1>";
-      if ($tipo == 1) {
-        $header .= "<a href='login.php'><div id='perfil'></div></a>";
-      }
-      $header .= "</header>";
-      echo $header;
+      <div>
+        <h1>Argos</h1>";
+        if($tipo == 1){
+          echo
+          "<a href='login.php'><img src='imagens/perfil_nulo.png' heigth=50px width=50px></a><br>
+          usuario";
+        }
+      echo
+      "</div>
+      </header>";
     }
     function rodape(){
       echo "
@@ -19,6 +23,8 @@
           <p>&copy; 2026 Argos. Todos os direitos reservados.</p>
       </footer>";
     }
-    ?>
+  ?>
+
+  
 </body>
 </html>
