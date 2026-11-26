@@ -33,7 +33,4 @@
       </footer>";
     }
   ?>
-
-  
 </body>
-</html>
